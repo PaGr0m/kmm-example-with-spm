@@ -1,13 +1,17 @@
 import SwiftUI
-import shared
-
-func greet() -> String {
-    return Greeting().greeting()
-}
+import KotlinLibrary
 
 struct ContentView: View {
     var body: some View {
-        Text(greet())
+        let network = KotlinLibrary.Network()
+        let response = request()
+        
+        Text(network.hello())
+    }
+    
+    func request() -> String {
+        KotlinLibrary.Network().restGet()
+        return "request"
     }
 }
 
