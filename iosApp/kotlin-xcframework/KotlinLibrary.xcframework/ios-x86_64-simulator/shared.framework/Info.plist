@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleExecutable</key>
-    <string>KotlinLibrary</string>
+    <string>shared</string>
     <key>CFBundleIdentifier</key>
-    <string>KotlinLibrary</string>
+    <string>com.github.pagr0m.shared.shared</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
-    <string>KotlinLibrary</string>
+    <string>shared</string>
     <key>CFBundlePackageType</key>
     <string>FMWK</string>
     <key>CFBundleShortVersionString</key>

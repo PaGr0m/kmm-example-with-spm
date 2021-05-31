@@ -1,17 +1,16 @@
 import SwiftUI
-import KotlinLibrary
+import shared
 
 struct ContentView: View {
     var body: some View {
-        let network = KotlinLibrary.Network()
-        let response = request()
-        
-        Text(network.hello())
+        Text(request())
     }
     
     func request() -> String {
-        KotlinLibrary.Network().restGet()
-        return "request"
+        let url = "https://jsonplaceholder.typicode.com/posts/1"
+        let response = CustomNetwork().get(url: url)
+
+        return response
     }
 }
 
