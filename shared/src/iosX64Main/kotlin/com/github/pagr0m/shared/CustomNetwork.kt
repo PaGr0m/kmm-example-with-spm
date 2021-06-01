@@ -3,13 +3,12 @@ package com.github.pagr0m.shared
 import platform.Foundation.NSError
 import platform.Foundation.NSURLSessionDataTask
 import platform.darwin.*
-import spm.AFNetworking.AFHTTPResponseSerializer
 import spm.AFNetworking.AFHTTPSessionManager
 import spm.AFNetworking.AFJSONResponseSerializer
 
 actual class CustomNetwork actual constructor() {
-    actual fun get(url: String): String {
-        var response = "empty"
+    actual fun get(url: String): Any {
+        var response : Any = ""
 
         val semaphore = dispatch_semaphore_create(0)
         val queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT.toLong(), 0);
@@ -26,7 +25,7 @@ actual class CustomNetwork actual constructor() {
             progress = null,
             success = { _: NSURLSessionDataTask?, responseObject: Any? ->
                 println(responseObject)
-                response = responseObject.toString()
+                response = responseObject!!
                 dispatch_semaphore_signal(semaphore)
             },
             failure = { _: NSURLSessionDataTask?, error: NSError? ->
@@ -37,14 +36,6 @@ actual class CustomNetwork actual constructor() {
         )
 
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-
-
-//        println("Check0: " + response)
-//        println("Check1: " + sessionDataTask?.response.toString())
-//        println("Check2: " + sessionDataTask?.currentRequest().toString())
-//        println("Check3: " + sessionDataTask?.description)
-//        println("Check4: " + sessionDataTask?.response())
-
 
         return response
     }

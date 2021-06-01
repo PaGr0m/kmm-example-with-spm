@@ -12,6 +12,7 @@
 		2885966D26669EE30026699D /* KotlinLibrary.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2876ABB1266304E10033C5AA /* KotlinLibrary.xcframework */; };
 		2885966E26669EE30026699D /* KotlinLibrary.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2876ABB1266304E10033C5AA /* KotlinLibrary.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		288596712666BF670026699D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288596702666BF670026699D /* User.swift */; };
+		288596742666C12D0026699D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288596732666C12D0026699D /* UserService.swift */; };
 		7555FF7F242A565900829871 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF7E242A565900829871 /* AppDelegate.swift */; };
 		7555FF81242A565900829871 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF80242A565900829871 /* SceneDelegate.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
@@ -58,6 +59,7 @@
 		2876ABB0266304E10033C5AA /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "kotlin-xcframework/AFNetworking.framework"; sourceTree = "<group>"; };
 		2876ABB1266304E10033C5AA /* KotlinLibrary.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = KotlinLibrary.xcframework; path = "kotlin-xcframework/KotlinLibrary.xcframework"; sourceTree = "<group>"; };
 		288596702666BF670026699D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		288596732666C12D0026699D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF7E242A565900829871 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7555FF80242A565900829871 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		288596722666C11F0026699D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				288596732666C12D0026699D /* UserService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +144,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				288596722666C11F0026699D /* Service */,
 				2885966F2666BF4F0026699D /* Model */,
 				7555FF7E242A565900829871 /* AppDelegate.swift */,
 				7555FF80242A565900829871 /* SceneDelegate.swift */,
@@ -337,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				288596712666BF670026699D /* User.swift in Sources */,
+				288596742666C12D0026699D /* UserService.swift in Sources */,
 				7555FF7F242A565900829871 /* AppDelegate.swift in Sources */,
 				7555FF81242A565900829871 /* SceneDelegate.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
@@ -512,6 +524,7 @@
 					"$(PROJECT_DIR)/kotlin-xcframework",
 				);
 				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -535,6 +548,7 @@
 					"$(PROJECT_DIR)/kotlin-xcframework",
 				);
 				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
