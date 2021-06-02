@@ -1,5 +1,6 @@
 import Foundation
 import AFNetworking
+import shared
 
 class UserService: ObservableObject {
     @Published var users: [User] = []
@@ -17,34 +18,9 @@ class UserService: ObservableObject {
     }
     
     private func request(url: String) -> Any {
-        var rawResponse : Any = ""
-        
-        let semaphore = DispatchSemaphore(value: 0);
-        let manager = AFHTTPSessionManager()
-        
-        manager.completionQueue = DispatchQueue.global();
-        manager.responseSerializer = AFJSONResponseSerializer()
-        
-        let dataTask = manager.get(
-            url,
-            parameters: nil,
-            headers: nil,
-            progress: nil,
-            success:
-                { operation, responseObject in
-                    rawResponse = responseObject as Any
-                    semaphore.signal()
-                },
-            failure:
-                { dataTask, error in
-                    print(error)
-                }
-        )
+        let network = CustomNetwork()
+        let rawResponse = network.get(url)
 
-        semaphore.wait()
-        
-        dataTask?.resume()
-                    
         return rawResponse
     }
     
